@@ -54,3 +54,9 @@ Progress is real only when:
 - Rework decreases,
 - Claims remain evidence-backed,
 - Human trust increases without lowering safety.
+
+## Incident Learnings (2026-02-26)
+- Multi-node recovery without strict boundaries creates avoidable instability.
+- Channel overlap is a top-tier failure mode; ownership must be explicit and enforced.
+- Service/token/version drift can mimic deeper failures; check these first.
+- The correct response pattern is: identify host → isolate variable → apply one fix class → verify.
