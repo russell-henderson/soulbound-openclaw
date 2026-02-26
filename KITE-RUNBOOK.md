@@ -71,7 +71,32 @@ openclaw gateway probe
 - Do not assume host context; always run `hostname` first.
 - Do not enable a channel on both nodes.
 
-## 6) Weekly Stability Routine
+## 6) Dashboard Recovery (when UI seems unreachable)
+- Dashboard is always local to the gateway host (`127.0.0.1:18789`).
+- Use SSH tunnels from your PC:
+  - Pi: `ssh -L 18790:127.0.0.1:18789 russ@<PI_IP>` → open `http://127.0.0.1:18790`
+  - Droplet: `ssh -L 18791:127.0.0.1:18789 russ@134.122.12.212` → open `http://127.0.0.1:18791`
+- If "address already in use", choose a different local port.
+
+## 7) Scope Guardrails (enforced)
+### Kite (Pi)
+- Telegram ON
+- Discord OFF
+- Canonical docs and policy authority
+
+### Drift (Droplet)
+- Discord ON
+- Telegram OFF
+- Worker/loop execution lane only
+
+### Guardrail checks
+```bash
+hostname
+openclaw status --deep | sed -n '/^Channels/,$p'
+openclaw gateway probe
+```
+
+## 8) Weekly Stability Routine
 On both hosts:
 
 ```bash
@@ -83,7 +108,7 @@ openclaw update status
 
 Record findings and action items in this repo.
 
-## 7) Feb 26, 2026 Incident Summary
+## 9) Feb 26, 2026 Incident Summary
 ### What happened
 - Multi-node context confusion and channel overlap during active recovery.
 
