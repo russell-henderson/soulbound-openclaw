@@ -26,3 +26,4 @@ Last updated: 2026-02-26 UTC
 ## Notes
 - Any tasks marked `[S]` in TODO require Samson approval before execution.
 - No claims of bridge production readiness until handshake evidence is recorded.
+- Samson directive added: Kite is tasked to deliver an **email parsing + sending service by EOD**.
